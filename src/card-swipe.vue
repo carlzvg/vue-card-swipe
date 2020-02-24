@@ -9,7 +9,7 @@
     <div
       class="card-swipe__indicators"
       v-if="showIndicators && count > 1"
-      :style="{ right: indicatorRight }"
+      :style="(indicatorPosition == 'right') ? 'right: ' + indicatorRight : ''"
     >
       <i
         v-for="(item, index) in cards"
@@ -60,6 +60,12 @@ export default {
     showIndicators: {
       type: Boolean,
       default: true
+    },
+
+    // indicator position
+    indicatorPosition: {
+      type: String,
+      default: "center"
     }
   },
   data() {
